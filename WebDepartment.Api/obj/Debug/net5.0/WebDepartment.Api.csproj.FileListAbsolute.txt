@@ -31,3 +31,9 @@ D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\obj\Debug\net5.0\WebDepa
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\obj\Debug\net5.0\ref\WebDepartment.Api.dll
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\obj\Debug\net5.0\WebDepartment.Api.pdb
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\obj\Debug\net5.0\WebDepartment.Api.genruntimeconfig.cache
+D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
