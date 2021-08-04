@@ -13,10 +13,10 @@ namespace WebDepartment.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DepartmentController : ControllerBase
+    public class EmployeeController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public DepartmentController(IConfiguration configuration)
+        public EmployeeController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -24,7 +24,9 @@ namespace WebDepartment.Api.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select DepartmentId, DepartmentName from dbo.Department";
+            string query = @"select EmployeeId, EmployeeName, Department,
+                            convert(varchar(10), DateOfJoining, 120) as DateOfJoining, PhotoFileName
+                            from dbo.Employee";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeConnection");
             SqlDataReader myReader;
@@ -44,11 +46,12 @@ namespace WebDepartment.Api.Controllers
         }
 
         [HttpPost]
-        public JsonResult Post(Department dep)
+        public JsonResult Post(Employee emp)
         {
             string query = @"
-                            insert into dbo.Department
-                            values (@DepartmentName)
+                            insert into dbo.Employee
+                            (EmployeeName, Department, DateOfJoining, PhotoFileName)
+                            values (@EmployeeName, @Department,@DateOfJoining,@PhotoFileName)
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeConnection");
@@ -59,7 +62,10 @@ namespace WebDepartment.Api.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@DepartmentName", dep.DepartmentName);
+                    myCommand.Parameters.AddWithValue("@EmployeeName", emp.EmployeeName);
+                    myCommand.Parameters.AddWithValue("@Department", emp.Department);
+                    myCommand.Parameters.AddWithValue("@DateOfJoining", emp.DateOfJoining);
+                    myCommand.Parameters.AddWithValue("@PhotoFileName", emp.PhotoFileName);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -70,12 +76,15 @@ namespace WebDepartment.Api.Controllers
         }
 
         [HttpPut]
-        public JsonResult Put(Department dep)
+        public JsonResult Put(Employee emp)
         {
             string query = @"
                             update dbo.Department
-                            set DepartmentName = @DepartmentName
-                            where DepartmentId=@DepartmentId
+                            set EmployeeName = @EmployeeName,
+                            Department=@Department
+                            DateOfJoining=@DateOfJoining
+                            PhotoFileName=@PhotoFileName
+                            where EmployeeId=@EmployeeId
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeConnection");
@@ -86,8 +95,11 @@ namespace WebDepartment.Api.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@DepartmentId", dep.DepartmentId);
-                    myCommand.Parameters.AddWithValue("@DepartmentName", dep.DepartmentName);
+                    myCommand.Parameters.AddWithValue("@EmployeeId", emp.EmployeeId);
+                    myCommand.Parameters.AddWithValue("@EmployeeName", emp.EmployeeName);
+                    myCommand.Parameters.AddWithValue("@Department", emp.Department);
+                    myCommand.Parameters.AddWithValue("@DateOfJoining", emp.DateOfJoining);
+                    myCommand.Parameters.AddWithValue("@PhotoFileName", emp.PhotoFileName);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -102,8 +114,8 @@ namespace WebDepartment.Api.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                            delete from dbo.Department
-                            where DepartmentId=@DepartmentId
+                            delete from dbo.Employee
+                            where EmployeeId=@EmployeeId
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeConnection");
@@ -114,7 +126,7 @@ namespace WebDepartment.Api.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@DepartmentId", id);
+                    myCommand.Parameters.AddWithValue("@EmployeeId", id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

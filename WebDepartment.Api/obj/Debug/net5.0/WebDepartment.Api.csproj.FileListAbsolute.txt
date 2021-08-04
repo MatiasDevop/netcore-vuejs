@@ -15,7 +15,6 @@ D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\Newtons
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\obj\Debug\net5.0\WebDepartment.Api.csprojAssemblyReference.cache
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\obj\Debug\net5.0\WebDepartment.Api.GeneratedMSBuildEditorConfig.editorconfig
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\obj\Debug\net5.0\WebDepartment.Api.AssemblyInfoInputs.cache
 D:\NET 5 Devlopment\WebDepartment.Api\WebDepartment.Api\obj\Debug\net5.0\WebDepartment.Api.AssemblyInfo.cs
