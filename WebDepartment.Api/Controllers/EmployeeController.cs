@@ -141,8 +141,8 @@ namespace WebDepartment.Api.Controllers
         }
 
         [Route("SaveFile")]
-        [HttpPost]
-        public JsonResult SaveFile()
+        [HttpPost, DisableRequestSizeLimit]
+        public IActionResult SaveFile()
         {
             try
             {
@@ -156,6 +156,7 @@ namespace WebDepartment.Api.Controllers
                     postedFile.CopyTo(stream);
                 }
 
+                //return Ok(new { physicalPath });
                 return new JsonResult(filename);
             }
             catch (Exception)

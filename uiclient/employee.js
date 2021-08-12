@@ -195,12 +195,13 @@ methods:{
     imageUpload(event){
         let formData= new FormData();
         formData.append('file', event.target.files[0]);
-        axios.post(
-            variables.API_URL+"employee/savefile",
-            formData)
-            .then((response)=>{
-                this.PhotoFileName = response.data;
-            });
+        console.log(formData);
+        // axios.post(
+        //     variables.API_URL+"employee/savefile",
+        //     formData)
+        //     .then((response)=>{
+        //         this.PhotoFileName = response.data;
+        //     });
     }
 
 
